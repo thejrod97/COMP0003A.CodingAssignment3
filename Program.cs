@@ -13,7 +13,7 @@ namespace COMP0003A.CodingAssignment3
             Console.WriteLine("Welcome to the Budget Management Tool!");
 
 
-            // Initialize variables
+            // Declared variables and had to initialize them to a default value so the loops had a something to start with and update the variables as it runs
             int incomeDynamic = 0;
             int incomeStatic = 0;
             int input;
@@ -27,8 +27,8 @@ namespace COMP0003A.CodingAssignment3
             incomeDynamic = OGincome;
             incomeStatic = OGincome;
 
-            // Display menu  
-            while (true)
+            // Display menu in a while loop to repeat itself after each input until user decideds to exit
+            while (true) 
             {
                 Console.WriteLine("\nMenu:");
                 Console.WriteLine("1, Add an Expense");
@@ -38,7 +38,8 @@ namespace COMP0003A.CodingAssignment3
                 Console.Write("Enter your choice: ");
                 input = int.Parse(Console.ReadLine());
 
-                if (input == 1)
+                // Have to nest an if loop because it varies on the users input of which number or any invalid reponse 
+                if (input == 1) 
                 {
                     Console.Write("\nEnter the expense name: ");
                     expenseName1 = Console.ReadLine().ToLower();
@@ -56,9 +57,15 @@ namespace COMP0003A.CodingAssignment3
                 }
                 else if (input == 3)
                 {
-                    if (expenseName1 == "" && expenseAmount1 == incomeStatic) // Had to use logical AND to adjust two variables at the same time 
+                    Console.Write("\nEnter the name of the expense to remove: ");
+                    string removeInput = Console.ReadLine().ToLower(); // I Declared and Initialzed removeInput 
+
+                    // Had to nest another if loop because it varies on users reponse
+                    if (removeInput == expenseName1) 
                     {
-                        Console.Write("\nEnter the name of the expense to remove: ");
+                        expenseName1 = ""; // This resets to an empty space if the user wants to view an expense name in option 2 without having anything added 
+                        expenseAmount1 = 0; // This resets the expense to 0 that was correlated to the expense name  
+                        incomeDynamic = incomeStatic; // Remaining Budget is reset to original income 
                         Console.WriteLine("Expense removed successfully!");
                     }
                     else
@@ -68,11 +75,12 @@ namespace COMP0003A.CodingAssignment3
                 }
                 else if(input == 4)
                 {
-                    Console.WriteLine("Goodbye!"); break; 
+                    Console.WriteLine("\nGoodbye!"); 
+                    break; 
                 }
                 else
                 {
-                    Console.WriteLine("Invalid input. Please enter a valid number.");
+                    Console.WriteLine("\nInvalid input. Please enter a valid number.");
                 }
 
 
