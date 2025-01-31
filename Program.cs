@@ -14,14 +14,18 @@ namespace COMP0003A.CodingAssignment3
 
 
             // Initialize variables
-            int income = 0;
+            int incomeDynamic = 0;
+            int incomeStatic = 0;
             int input;
             string expenseName1 = "";
             int expenseAmount1 = 0;
 
             // Prompt user to enter their income
             Console.Write("\nEnter your monthly income: ");
-            income = int.Parse(Console.ReadLine());
+            // I'm assigning the original input as its own variable and using two different variables depending on users reponse
+            int OGincome = int.Parse(Console.ReadLine()); // I declared and initalized for OGincome
+            incomeDynamic = OGincome;
+            incomeStatic = OGincome;
 
             // Display menu  
             while (true)
@@ -37,20 +41,39 @@ namespace COMP0003A.CodingAssignment3
                 if (input == 1)
                 {
                     Console.Write("\nEnter the expense name: ");
-                    expenseName1 = Console.ReadLine();
+                    expenseName1 = Console.ReadLine().ToLower();
                     Console.Write("Enter the expense amount: ");
                     expenseAmount1 = int.Parse(Console.ReadLine());
-                    income -= expenseAmount1; // Update net income 
+                    incomeDynamic -= expenseAmount1; // Update net income 
                     Console.WriteLine("Expense Added Successfully!");
                 }
-              else if (input == 2)
+                else if (input == 2)
                 {
                     Console.WriteLine("\nExpenses");
                     Console.WriteLine($"- {expenseName1}: ${expenseAmount1}");
                     Console.WriteLine($"Total Expenses: ${expenseAmount1}");
-                    Console.WriteLine($"Remaining Budget: ${income}");
+                    Console.WriteLine($"Remaining Budget: ${incomeDynamic}"); // Updated net income displayed here
                 }
-
+                else if (input == 3)
+                {
+                    if (expenseName1 == "" && expenseAmount1 == incomeStatic) // Had to use logical AND to adjust two variables at the same time 
+                    {
+                        Console.Write("\nEnter the name of the expense to remove: ");
+                        Console.WriteLine("Expense removed successfully!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Expense not found, please check the name and try again.");
+                    }
+                }
+                else if(input == 4)
+                {
+                    Console.WriteLine("Goodbye!"); break; 
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid number.");
+                }
 
 
             }
