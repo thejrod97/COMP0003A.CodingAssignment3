@@ -17,8 +17,18 @@ namespace COMP0003A.CodingAssignment3
             int incomeDynamic = 0;
             int incomeStatic = 0;
             int input;
+            string expenseNameNew = "";
             string expenseName1 = "";
+            string expenseName2 = "";
+            string expenseName3 = "";
+            string expenseName4 = "";
+            string expenseName5 = "";
+            int expenseAmountNew = 0;
             int expenseAmount1 = 0;
+            int expenseAmount2 = 0;
+            int expenseAmount3 = 0;
+            int expenseAmount4 = 0;
+            int expenseAmount5 = 0;
 
             // Prompt user to enter their income
             Console.Write("\nEnter your monthly income: ");
@@ -42,11 +52,45 @@ namespace COMP0003A.CodingAssignment3
                 if (input == 1) 
                 {
                     Console.Write("\nEnter the expense name: ");
-                    expenseName1 = Console.ReadLine().ToLower();
+                    expenseNameNew = Console.ReadLine().ToLower();
                     Console.Write("Enter the expense amount: ");
-                    expenseAmount1 = int.Parse(Console.ReadLine());
-                    incomeDynamic -= expenseAmount1; // Update net income 
-                    Console.WriteLine("Expense Added Successfully!");
+                    expenseAmountNew = int.Parse(Console.ReadLine());
+
+                    if (expenseName1 == "")
+                    {
+                        expenseName1 = expenseNameNew;
+                        expenseAmount1 = expenseAmountNew;
+                        Console.WriteLine("Expense Added Successfully!");
+                    }
+                    else if (expenseName2 == "")
+                    {
+                        expenseName2 = expenseNameNew;
+                        expenseAmount2 = expenseAmountNew;
+                        Console.WriteLine("Expense Added Successfully!");
+                    }
+                    else if (expenseName3 == "")
+                    {
+                        expenseName3 = expenseNameNew;
+                        expenseAmount3 = expenseAmountNew;
+                        Console.WriteLine("Expense Added Successfully!");
+                    }
+                    else if (expenseName4 == "")
+                    {
+                        expenseName4 = expenseNameNew;
+                        expenseAmount4 = expenseAmountNew;
+                        Console.WriteLine("Expense Added Successfully!");
+                    }
+                    else if (expenseName5 == "")
+                    {
+                        expenseName5 = expenseNameNew;
+                        expenseAmount5 = expenseAmountNew;
+                        Console.WriteLine("Expense Added Successfully!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Expense slots are full.");
+                    }
+                    incomeDynamic -= expenseAmountNew; // Update net income 
                 }
                 else if (input == 2)
                 {
