@@ -56,6 +56,7 @@ namespace COMP0003A.CodingAssignment3
                     Console.Write("Enter the expense amount: ");
                     expenseAmountNew = int.Parse(Console.ReadLine());
 
+                    //Updated to fit a total of 5 expenses
                     if (expenseName1 == "")
                     {
                         expenseName1 = expenseNameNew;
@@ -90,7 +91,7 @@ namespace COMP0003A.CodingAssignment3
                     {
                         Console.WriteLine("Expense slots are full.");
                     }
-                    incomeDynamic -= expenseAmountNew; // Update net income 
+                    
                 }
                 else if (input == 2)
                 {
@@ -134,24 +135,42 @@ namespace COMP0003A.CodingAssignment3
                     Console.Write("\nEnter the name of the expense to remove: ");
                     string removeInput = Console.ReadLine().ToLower(); // I Declared and Initialzed removeInput 
 
-                    // Had to nest another if loop because it varies on users reponse
-                    if (removeInput == expenseName1) 
+                    //This else if ladder removes their expense and updates option 2
+                    if (removeInput == expenseName1)
                     {
-                        expenseName1 = ""; // This resets to an empty space if the user wants to view an expense name in option 2 without having anything added 
-                        expenseAmount1 = 0; // This resets the expense to 0 that was correlated to the expense name  
-                        incomeDynamic = incomeStatic; // Remaining Budget is reset to original income 
+                        expenseName1 = ""; 
+                        expenseAmount1 = 0; 
                         Console.WriteLine("Expense removed successfully!");
                     }
                     else if (removeInput == expenseName2)
                     {
                         expenseName2 = "";
                         expenseAmount2 = 0;
-
+                        Console.WriteLine("Expense removed successfully!");
+                    }
+                    else if (removeInput == expenseName3)
+                    {
+                        expenseName3 = "";
+                        expenseAmount3 = 0;
+                        Console.WriteLine("Expense removed successfully!");
+                    }
+                    else if (removeInput == expenseName4)
+                    {
+                        expenseName4 = "";
+                        expenseAmount4 = 0;
+                        Console.WriteLine("Expense removed successfully!");
+                    }
+                    else if (removeInput == expenseName5)
+                    {
+                        expenseName5 = "";
+                        expenseAmount5 = 0;
+                        Console.WriteLine("Expense removed successfully!");
                     }
                     else
                     {
                         Console.WriteLine("Expense not found, please check the name and try again.");
                     }
+
                 }
                 else if (input == 4)
                 {
