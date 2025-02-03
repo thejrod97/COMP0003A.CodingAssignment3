@@ -95,9 +95,39 @@ namespace COMP0003A.CodingAssignment3
                 else if (input == 2)
                 {
                     Console.WriteLine("\nExpenses");
-                    Console.WriteLine($"- {expenseName1}: ${expenseAmount1}");
-                    Console.WriteLine($"Total Expenses: ${expenseAmount1}");
-                    Console.WriteLine($"Remaining Budget: ${incomeDynamic}"); // Updated net income displayed here
+                    
+                    //The power of PEMDAS! I could of made a seperate variable to update each total expense and the remaining budget but I found this to be quicker
+                    if (expenseName1 != "")
+                    {
+                        Console.WriteLine($"- {expenseName1}: ${expenseAmount1}");
+                        Console.WriteLine($"Total Expenses: ${expenseAmount1}");
+                        Console.WriteLine($"Remaining Budget: ${incomeStatic - expenseAmount1} "); 
+                    }
+                    if (expenseName2 != "")
+                    {
+                        Console.WriteLine($"\n- {expenseName2}: ${expenseAmount2}");
+                        Console.WriteLine($"Total Expenses: ${expenseAmount2 + expenseAmount1}");
+                        Console.WriteLine($"Remaining Budget: ${incomeStatic - expenseAmount1 - expenseAmount2}");
+                    }
+                    if (expenseName3 != "")
+                    {
+                        Console.WriteLine($"\n- {expenseName3}: ${expenseAmount3}");
+                        Console.WriteLine($"Total Expenses: ${expenseAmount3 + expenseAmount2 + expenseAmount1}");
+                        Console.WriteLine($"Remaining Budget: ${incomeStatic - expenseAmount1 - expenseAmount2 - expenseAmount3}");
+                    }
+                    if (expenseName4 != "")
+                    {
+                        Console.WriteLine($"\n- {expenseName4}: ${expenseAmount4}");
+                        Console.WriteLine($"Total Expenses: ${expenseAmount4 + expenseAmount3 + expenseAmount2 + expenseAmount1}");
+                        Console.WriteLine($"Remaining Budget: ${incomeStatic - expenseAmount1 - expenseAmount2 - expenseAmount3 - expenseAmount4}");
+                    }
+                    if (expenseName5 != "")
+                    {
+                        Console.WriteLine($"\n- {expenseName5}: ${expenseAmount5}");
+                        Console.WriteLine($"Total Expenses: ${expenseAmount5 + expenseAmount4 + expenseAmount3 + expenseAmount2 + expenseAmount1}");
+                        Console.WriteLine($"Remaining Budget: ${incomeStatic - expenseAmount1 - expenseAmount2 - expenseAmount3 - expenseAmount4 - expenseAmount5}");
+                    }
+                    
                 }
                 else if (input == 3)
                 {
@@ -112,12 +142,18 @@ namespace COMP0003A.CodingAssignment3
                         incomeDynamic = incomeStatic; // Remaining Budget is reset to original income 
                         Console.WriteLine("Expense removed successfully!");
                     }
+                    else if (removeInput == expenseName2)
+                    {
+                        expenseName2 = "";
+                        expenseAmount2 = 0;
+
+                    }
                     else
                     {
                         Console.WriteLine("Expense not found, please check the name and try again.");
                     }
                 }
-                else if(input == 4)
+                else if (input == 4)
                 {
                     Console.WriteLine("\nGoodbye!"); 
                     break; 
